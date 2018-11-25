@@ -2,7 +2,10 @@
 
 <img align="left" src="Icon.png" height="156" width="156">
 
-Collage — iOS приложение дл создания коллажа из Instagram фотографий
+Collage — iOS приложение для создания коллажа из Instagram фотографий.
+
+<br/><br/>
+<br/><br/>
 
 ## Функции
 * Интеграция с Instagram API
@@ -16,7 +19,8 @@ Collage — iOS приложение дл создания коллажа из I
 Nuke, CoreData, AutoLayout, Localization<br>
 Swift 4.2, iOS 11/12, Xcode 10.1
 
-## Скриншоты
+## Настройка
+Для сборки проекта необходимо указать `clientID` в файле `Helpers/InstagramURLBuilder.swift`.
 
-<img src="images/IMG_0382.PNG" width="450">
-<img src="images/IMG_0383.PNG" width="450">
+## Скриншоты
+<img src="images/IMG_0383.PNG" width="350"> <img src="images/IMG_0382.PNG" width="350">
