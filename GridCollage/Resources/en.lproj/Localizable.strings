@@ -1,0 +1,12 @@
+/* 
+  Strings.strings
+  GridCollage
+
+  Created by Daniil Subbotin on 11/11/2018.
+  Copyright © 2018 Daniil Subbotin. All rights reserved.
+*/
+"LoginButton" = "Login";
+"LoginTitle" = "Login";
+"LoginLabel" = "Login to create collage from your photos";
+"LogoutButton" = "Logout";
+"Collage" = "Collage";
