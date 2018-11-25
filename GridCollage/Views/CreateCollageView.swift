@@ -49,6 +49,9 @@ class CreateCollageView: UIView {
     
     private var peekDelegate: PeekCollectionViewDelegate!
     
+    var currentCollageType: CollageType = .regularGrid
+    var currentCollageIndex = 0
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -72,12 +75,7 @@ class CreateCollageView: UIView {
     // MARK: - Public methods
     
     func getCollageType() -> CollageType? {
-        if let indexPaths = collageCollectionView.indexPathsForSelectedItems {
-            if let indexPath = indexPaths.first {
-                return CollageType.init(rawValue: indexPath.row)
-            }
-        }
-        return nil
+        return currentCollageType
     }
     
     // MARK: - Private methods
@@ -109,6 +107,13 @@ class CreateCollageView: UIView {
 extension CreateCollageView: PeekDelegate {
     func didPeek(_ peek: PeekCollectionViewDelegate,
                  didChangeActiveIndexTo activeIndex: Int) {
-        print(activeIndex)
+        currentCollageIndex = activeIndex
+        if activeIndex == 0 {
+            currentCollageType = .regularGrid
+        } else if activeIndex == 1 {
+            currentCollageType = .verticalStack
+        } else if activeIndex == 2 {
+            currentCollageType = .horizontalStack
+        }
     }
 }

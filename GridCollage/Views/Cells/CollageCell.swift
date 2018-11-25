@@ -66,13 +66,8 @@ class CollageCell: UICollectionViewCell {
         }
     }
     
-    func createCollageImage() -> UIImage {
-        return CollageMaker.make(
-            imageTL: image1.image!,
-            imageTR: image2.image!,
-            imageBL: image3.image!,
-            imageBR: image4.image!
-            )!
+    func getCollageImages() -> [UIImage] {
+        return [image1.image!, image2.image!, image3.image!, image4.image!]
     }
     
     override func prepareForReuse() {
