@@ -24,6 +24,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         var view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.image = #imageLiteral(resourceName: "placeholder")
+        view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

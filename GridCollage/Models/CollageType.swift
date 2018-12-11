@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CollageType: Int {
+enum CollageType: Int, CaseIterable {
     /*
      [][]
      [][]
@@ -27,4 +27,5 @@ enum CollageType: Int {
      [][][][]
      */
     case horizontalStack = 2
+    
 }

@@ -67,14 +67,14 @@ class CreateCollageViewController: UIViewController {
     
     @objc func shareTapAction() {
         if let collageType = rootView.getCollageType() {
-            
             let indexPath = IndexPath(row: rootView.currentCollageIndex, section: 0)
             if let cell = rootView.collageCollectionView.cellForItem(at: indexPath) as? CollageCell {
                 let images = cell.getCollageImages()
-                let image = CollageMaker.makeCollage(ofType: collageType, from: images)
-                guard image != nil else { return }
-                let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-                navigationController?.present(activity, animated: true, completion: nil)
+                CollageMaker.makeCollage(ofType: collageType, from: images) { [weak self] image in
+                    guard image != nil else { return }
+                    let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+                    self?.navigationController?.present(activity, animated: true, completion: nil)
+                }
             }
         }
     }

@@ -11,13 +11,29 @@ import UIKit
 
 class CollageMaker {
     
-    static func makeCollage(ofType type: CollageType, from images: [UIImage]) -> UIImage? {
+    static func makeCollage(ofType type: CollageType, from images: [UIImage],
+                            completion: @escaping ((UIImage?)->Void) ) {
         if type == .regularGrid {
-            return makeGridCollage(images)
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
+                let image = makeGridCollage(images)
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
         } else if type == .horizontalStack {
-            return makeHorizontalStackCollage(images)
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
+                let image = makeHorizontalStackCollage(images)
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
         } else {
-            return makeVerticalStackCollage(images)
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).async {
+                let image = makeVerticalStackCollage(images)
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
         }
     }
     
